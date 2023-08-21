@@ -193,7 +193,25 @@ iex(1)> name = "hello"
 iex(2)> <<head, rest::binary>> = name
 "hello"
 iex(3)> head
-104
+104 
 iex(4)> rest
 "ello"
 ```
+3. Charlist
+var a = 'abcd'
+
+4. Process
+my_pid = self()
+
+5. List - Linked Lists   
+    list = ["a","b","C"]
+    # list[0]#doesn't work
+    IO.puts(Enum.at(list,0))
+Enum has a lot of in built functions
+function signature : at/2 
+`/2` - arity
+![](assets/2023-08-21-15-45-59.png)
+
+Help : h Enum.at
+6. TUPLE : {1,2}
+To store large no of elements, list is recommended
