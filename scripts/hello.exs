@@ -81,13 +81,49 @@ defmodule Hello do
 
     #Cons/Pipe Operator
     [h | t] = list #h - first, t - remaining
-    IO.puts(h)
+    IO.puts(h)#a
 
     # TUPLE
     {a,b} = {1,2}
     {:reply,msg,state} = {:reply, "Data found", ["123",234]}
 
+    #Keyword List
+    data = [a: 1,b: 2] # a is actually an atom, and
+    #its stored as {:a,1}
 
+    #we can verify that by trying to match
+    [{:a,1}] = [a: 1]
+    [{:a,1},{:b,2}] = data
+
+    #Access key
+    IO.puts(data[:a])#1
+
+    #MAPS
+    my_map = %{a: 1, b: 2, c: 3}
+    #Reevaluate
+    %{a: first, b: second, c: third} = my_map
+    IO.puts(first)#can access value directly
+
+    #Matching a single value
+    %{ b: second_value} = my_map
+    IO.puts(second_value)#can access value directly
+
+    # if the key is of atom type, we can access the value with .
+    IO.puts(my_map.b)
+
+    #but if key is a string, we can't
+    map2 = %{"a" => 1,"b" => 2}
+    %{"a" => val_a} = map2
+    IO.puts(val_a)
+    # IO.puts(map2.a) #doesn't work
+
+    #updating an atom key
+    map2 = %{map2 | "b" => 4}
+    IO.puts(inspect(map2))
+
+    #updating a string key
+    my_map = %{my_map | c: 20}
+    IO.puts(inspect(my_map))
 
   end
 end

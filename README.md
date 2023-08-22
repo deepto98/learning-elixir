@@ -215,3 +215,6 @@ function signature : at/2
 Help : h Enum.at
 6. TUPLE : {1,2}
 To store large no of elements, list is recommended
+7. MAP - Also kv structure
+    my_map = %{a: 1, b: 2, c: 3}
+8. Struct
