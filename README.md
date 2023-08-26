@@ -217,4 +217,26 @@ Help : h Enum.at
 To store large no of elements, list is recommended
 7. MAP - Also kv structure
     my_map = %{a: 1, b: 2, c: 3}
-8. Struct
+8. Struct -
+For structs, we need modules
+#Struct
+defmodule User do
+  defstruct username: "", email: "", age: nil
+end
+## Flow Control
+   1.  case 
+
+    list = [1,2,3]
+    case Enum.at(list,2) do
+      1 -> IO.puts("This won't print")
+      3 -> IO.puts("Match")
+      _ -> IO.puts("Default, no match")
+    end
+
+   2.  Condition  
+   cond do
+    hd(list3) == 2 -> IO.puts("Got 2")
+    true -> IO.puts("")
+  end
+  3. If else
+  

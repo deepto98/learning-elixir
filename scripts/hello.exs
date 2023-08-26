@@ -1,5 +1,12 @@
 # All Elixir code has to be inside a module
 # $ Convention : module name = file name
+
+
+#Struct
+defmodule User do
+  defstruct username: "", email: "", age: nil
+end
+
 defmodule Hello do
   # def - keyword to define functions
   def world(name) do
@@ -125,8 +132,63 @@ defmodule Hello do
     my_map = %{my_map | c: 20}
     IO.puts(inspect(my_map))
 
+    #struct - defined in line 5
+    user1 = %User{username: "abc", email: "abc@abc.abc", age: 25}
+    %{username: username} = user1
+    IO.puts(username)
+
+    #Flow control - case
+    list = [1,2,3]
+    case Enum.at(list,2) do
+      1 -> IO.puts("This won't print")
+      3 -> IO.puts("Match")
+      _ -> IO.puts("Default, no match")
+    end
+
+    user2 = %User{username: "abc", age: 25}
+    case user2 do
+      %{username: "abc"} -> IO.puts("abc")
+      _ -> IO.puts("#{user2.username}")
+    end
+
+    #Updating struct by rebinding and piping
+    user2 = %{user2 | username: "Deepto"}
+
+    case user2 do
+      %{username: "abc"} -> IO.puts("abc")
+      _ -> IO.puts("Name is #{user2.username}")
+    end
+
+  #case accepts expressions, cond doesn't
+
+  user2 = %{user2 | username: "Deeto"}
+
+  #Flow Control - condition
+  cond do
+    user2.username == "Deepto" ->  IO.puts("Name is Deepto")
+    user2.username == "abc" ->  IO.puts("Name is abc")
+    true ->  IO.puts("catch all")
   end
-end
+
+  list3 = [2,4]
+  cond do
+    hd(list3) == 2 -> IO.puts("Got 2")
+    true -> IO.puts("Head is #{hd(list3)}")
+  end
+
+  #Flow Control - if else
+    if true do
+      IO.puts("Hi")
+    else
+      IO.puts("Hello")
+    end
+
+
+
+  end #world fn end
+
+end #hello mod end
 
 # From module hello, we call world
 Hello.world("abc")
+    # %User{username: "abc", email: "abc@abc.abc", age: 25}
