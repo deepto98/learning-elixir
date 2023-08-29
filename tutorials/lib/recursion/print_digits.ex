@@ -19,8 +19,8 @@ defmodule Tutorials.Recursion.PrintDigits do
   def printDigitsTail(0), do: 0
   # Tail Recursion - First  statement, then recursive call
   def printDigitsTail(n) do
-    printDigitsTail(n - 1)
     IO.puts(n)
+    printDigitsTail(n - 1)
   end
 
 # sumOfDigits - Recursive fn to calculate sum of all nos till n

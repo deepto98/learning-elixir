@@ -203,7 +203,7 @@ var a = 'abcd'
 4. Process
 my_pid = self()
 
-5. List - Linked Lists   
+5. List - Linked Lists    https://hexdocs.pm/elixir/1.12.3/List.html
     list = ["a","b","C"]
     # list[0]#doesn't work
     IO.puts(Enum.at(list,0))
@@ -213,6 +213,21 @@ function signature : at/2
 ![](assets/2023-08-21-15-45-59.png)
 
 Help : h Enum.at
+
+Lists in Elixir are effectively linked lists, which means they are internally represented in pairs containing the head and the tail of a list:
+[head | tail] = [1, 2, 3]
+head
+1
+tail
+[2, 3]
+
+Similarly, we could write the list [1, 2, 3] using only such pairs (called cons cells):
+
+[1 | [2 | [3 | []]]]
+Some lists, called improper lists, do not have an empty list as the second element in the last cons cell:
+
+[1 | [2 | [3 | 4]]]
+
 6. TUPLE : {1,2}
 To store large no of elements, list is recommended
 7. MAP - Also kv structure
@@ -239,4 +254,19 @@ end
     true -> IO.puts("")
   end
   3. If else
-  
+
+
+  ## Mix
+  Mix- mixing elixir
+  `mix new tutorials`
+  * lib - has the tutorials 
+  iex with mix : iex -S mix
+  alias : alias Tutorials.Recursion.PrintDigits
+  Recompile : r  Tutorials.Recursion.PrintDigits
+    ## Recursion
+    ![](assets/2023-08-26-16-31-28.png)
+    ![](assets/2023-08-26-18-15-45.png)
+    some recursive programs - lib/recursion
+
+    ## List
+    lib/list
